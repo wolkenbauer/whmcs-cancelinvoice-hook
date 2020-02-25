@@ -24,8 +24,3 @@ foreach($invoices as $invoice)
 
 }); //hook
 
-
-add_hook('InvoiceCancelled',1,function($vars) 
-{
-logactivity("[INVOICECANCELHOOK] ".$vars['id']." has been cancelled.";
-});
