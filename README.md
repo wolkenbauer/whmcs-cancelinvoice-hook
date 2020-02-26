@@ -11,3 +11,7 @@ Just copy the hook file into /includes/hooks and adjust the $overduedays var in 
 WHMCS 7.4 and above.
 
 n-joy
+
+Changes:
+
+20200226 bugfix: removed "]" sign in line 22 (logactivity)
