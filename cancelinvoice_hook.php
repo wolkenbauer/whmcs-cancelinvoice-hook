@@ -5,7 +5,7 @@ if (!defined("WHMCS"))
 
 use WHMCS\Database\Capsule;
 
-add_hook('AfterCronJob',1,function($vars) 
+add_hook('DailyCronJob',1,function($vars) 
 {
 //
 // Change $overduedays to whatever you need. Default is cancel all invoices after being overdue for 90 days.
