@@ -10,7 +10,7 @@ add_hook('AfterCronJob',1,function($vars)
 //
 // Change $overduedays to whatever you need. Default is cancel all invoices after being overdue for 90 days.
 //
-$overduedays=14;    
+$overduedays=90;    
 $invoices=Capsule::table("tblinvoices")->where("status","Unpaid")->where("duedate","<",date("Y-m-d",strtotime("-$overduedays days")))->get();
 
 foreach($invoices as $invoice)
