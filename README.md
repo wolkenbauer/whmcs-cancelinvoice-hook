@@ -14,4 +14,4 @@ n-joy
 
 Changes:
 
-20200226 bugfix: removed "]" sign in line 22 (logactivity)
+20200226 bugfix: removed "]" sign in line 22 (logactivity) and changed "AfterCronJob" hook to "DailyCronJob". 
