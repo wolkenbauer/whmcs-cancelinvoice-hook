@@ -19,7 +19,7 @@ foreach($invoices as $invoice)
   //and may affect other modules/apps which rely on this hook.
   $results = localAPI("UpdateInvoice",array("invoiceid"=>$invoice->id,"status"=>"Cancelled"));
   if ($results["result"]=="success") 
-   logactivity("[INVOICECANCELHOOK] has cancelled Invoice ID: $invoice->id automatically." ]);
+   logactivity("[INVOICECANCELHOOK] has cancelled Invoice ID: $invoice->id automatically.");
 }
 
 }); //hook
