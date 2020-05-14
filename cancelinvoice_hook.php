@@ -32,7 +32,7 @@ add_hook('DailyCronJob',2,function($vars)
     
 // As requested by someone, we can use this hook also for cancelling long pending orders (dead orders)
 //
-// Change $overduedays to whatever you need. Default is cancel all orders after being overdue for 14 days.
+// Change $overduedays to whatever you need. Default is cancel all orders after pending for 14 days.
 //
 $overduedays=14;    
 $orders=Capsule::table("tblorders")->where("status","Pending")->where("date","<",date("Y-m-d",strtotime("-$overduedays days")))->get();
