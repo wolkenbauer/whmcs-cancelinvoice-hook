@@ -21,6 +21,32 @@ foreach($invoices as $invoice)
   if ($results["result"]=="success") 
    logactivity("[INVOICECANCELHOOK] has cancelled Invoice ID: $invoice->id automatically.");
 }
+ 
+}); //hook
+
+
+//process long pending orders the same way as overdue invoices
+
+add_hook('DailyCronJob',2,function($vars) 
+{
+    
+// As requested by someone, we can use this hook also for cancelling long pending orders (dead orders)
+//
+// Change $overduedays to whatever you need. Default is cancel all orders after being overdue for 14 days.
+//
+$overduedays=14;    
+$orders=Capsule::table("tblorders")->where("status","Pending")->where("date","<",date("Y-m-d",strtotime("-$overduedays days")))->get();
+
+foreach($orders as $order)
+{
+  //use CancelOrder API Call for changing the status
+  $results = localAPI("CancelOrder",array("id"=>$order->id,"status"=>"Cancelled"));
+  if ($results["result"]=="success") 
+   logactivity("[ORDERCANCELHOOK] has cancelled Order ID: $order->id automatically.");
+}
 
 }); //hook
+
+
+
 
