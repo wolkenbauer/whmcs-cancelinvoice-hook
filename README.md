@@ -12,11 +12,13 @@ WHMCS 7.4 and above.
 
 n-joy
 
-Changes:
 
+# Changes:
+
+20200514 feature: added second hook for auto-cancelling long pending orders too.
 20200226 bugfix: removed "]" sign in line 22 (logactivity) and changed "AfterCronJob" hook to "DailyCronJob". 
 
 Due to a confirmed Bug in WHMCS Core, the InvoiceCancelled Hook will not fire when changing invoice status by API call.
 (internal case #CORE-14322). Until this has been fixed by WHMCS, you need to make sure no other module etc. need to be notified for status changes.
 
-20200514 feature: added second hook for auto-cancelling long pending orders too.
+
